@@ -1,0 +1,12 @@
+#HANOI
+def toh(n,source,target,aux):
+  if n==1:
+    print(f"move {n} from {source} to {target}")
+    return
+
+  toh(n-1,source,aux,target)
+  print(f"move {n} from {source} to {target}")
+
+  toh(n-1,aux,target,source)
+
+toh(3,'A','C','B')

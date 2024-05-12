@@ -1,0 +1,17 @@
+#mini-max
+
+import math
+def minimax(curr_depth,nodeIndex,maxTurn,score,targetDepth):
+  if curr_depth==targetDepth:
+    return score[nodeIndex]
+
+  if maxTurn:
+    return max(minimax(curr_depth+1,nodeIndex*2,False,score,targetDepth),(minimax(curr_depth+1,nodeIndex*2+1,False,score,targetDepth)))
+
+  else:
+    return min(minimax(curr_depth+1,nodeIndex*2,True,score,targetDepth),(minimax(curr_depth+1,nodeIndex*2+1,True,score,targetDepth)))
+
+score=[-1,8,2,6,-3,-5,0,7]
+tree_depth=math.log(len(score),2)
+print("optimal solution-")
+print(minimax(0,0,True,score,tree_depth))

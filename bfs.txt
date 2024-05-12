@@ -1,0 +1,31 @@
+#BFS
+
+
+visited = [] 
+queue = []   
+def bfs(visited, graph, node):
+  visited.append(node)
+  queue.append(node)
+
+  while queue:
+    m = queue.pop(0) 
+    print (m, end = " ") 
+
+    for neighbour in graph[m]:
+      if neighbour not in visited:
+        visited.append(neighbour)
+        queue.append(neighbour)
+
+
+graph={}
+num=int(input("enter no of node- "))
+
+for _ in range(num):
+  node=input("enter the node- ")
+  neighbors=input("enter the neighbous- ").split()
+  graph[node]=neighbors
+
+
+start_node=input("enter start node- ")
+
+bfs(visited,graph,start_node)

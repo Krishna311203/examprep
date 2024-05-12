@@ -1,0 +1,11 @@
+#nlp-sentiment analysis
+import nltk
+nltk.download('vader_lexicon')
+
+from nltk.sentiment import SentimentIntensityAnalyzer
+
+sid=SentimentIntensityAnalyzer()
+sentance="this is not a good idea!"
+
+scores=sid.polarity_scores(sentance)
+print(scores)
